@@ -1,4 +1,3 @@
-// components/skills.js
 import { skills } from '../data/skills.js';
 
 export function renderSkills() {
@@ -7,12 +6,11 @@ export function renderSkills() {
   skills.forEach((cat, index) => {
     const box = document.createElement('div');
     box.classList.add('skill-box');
-
-    // Animación escalonada opcional
     box.style.setProperty('--delay', `${index * 0.1}s`);
 
     const title = document.createElement('h3');
-    title.textContent = cat.categoria;
+    title.classList.add('skill-title');
+    title.innerHTML = `${cat.categoria} <span class="arrow">›</span>`;
 
     const list = document.createElement('ul');
     list.className = 'skill-list';
@@ -22,10 +20,19 @@ export function renderSkills() {
     box.appendChild(list);
     skillsContainer.appendChild(box);
 
-    // Comportamiento desplegable en mobile
+    // Toggle dinámico en mobile
     title.addEventListener('click', () => {
       if (window.innerWidth <= 768) {
-        list.classList.toggle('expanded');
+        const isExpanded = list.style.maxHeight && list.style.maxHeight !== "0px";
+
+        // Contraer todas
+        document.querySelectorAll('.skill-list').forEach(el => el.style.maxHeight = null);
+        document.querySelectorAll('.skill-box').forEach(b => b.classList.remove('open'));
+
+        if (!isExpanded) {
+          list.style.maxHeight = list.scrollHeight + "px";
+          box.classList.add('open');
+        }
       }
     });
   });

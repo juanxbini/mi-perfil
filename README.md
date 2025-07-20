@@ -4,11 +4,11 @@ Bienvenido a mi landing page profesional. Este sitio fue construido desde cero u
 
 ---
 
-## 🚀 Tecnologías utilizadas
+## ✨ Tecnologías utilizadas
 
 * ⚡ [Vite](https://vitejs.dev/) – entorno de desarrollo moderno
 * 🌐 HTML + CSS3 (modularizado)
-* 🧠 JavaScript (ESModules)
+* 🧠 JavaScript con ESModules (estructura por componentes)
 * 🎨 Font Awesome para iconos
 * 🛠 GitHub Pages como plataforma de despliegue
 
@@ -24,13 +24,24 @@ mi-perfil/
 ├── vite.config.js
 ├── package.json
 ├── src/
-│   ├── main.js              # Renderiza el sitio dinámicamente
-│   ├── styles.css           # Estilos globales y responsivos
-│   └── data/
-│       ├── skills.js       # Áreas de experiencia profesional
-│       ├── education.js    # Formación académica
-│       ├── projects.js     # Proyectos destacados
-│       └── links.js        # Enlaces externos y redes
+│   ├── main.js                 # Punto de entrada: importa renderApp
+│   ├── style.css              # Estilos globales y responsivos
+│   ├── data/                  # Contenido dinámico
+│   │   ├── skills.js
+│   │   ├── education.js
+│   │   ├── projects.js
+│   │   └── links.js
+│   └── components/            # Componentes por sección
+│       ├── renderApp.js       # Inyecta estructura y render dinámico
+│       ├── Navbar.js
+│       ├── Header.js
+│       ├── Profile.js
+│       ├── SkillsSection.js   # Inserta estructura base
+│       ├── skills.js          # Renderiza contenido interactivo
+│       ├── Meteochismes.js
+│       ├── EducationSection.js
+│       ├── ProjectsSection.js
+│       └── Footer.js
 ```
 
 ---
@@ -44,19 +55,23 @@ npm install
 npm run dev
 ```
 
-Abre tu navegador en `http://localhost:5173/`
+Luego abrí tu navegador en:
+
+```
+http://localhost:5173/
+```
 
 ---
 
 ## 📦 Build y despliegue en GitHub Pages
 
-1. Configurar la base en `vite.config.js`:
+1. Configurá la base en `vite.config.js`:
 
 ```js
 base: '/mi-perfil/' // reemplazar con el nombre de tu repositorio
 ```
 
-2. Ejecutar build y deploy:
+2. Ejecutá build y deploy:
 
 ```bash
 npm run build
@@ -73,27 +88,28 @@ https://tuusuario.github.io/mi-perfil/
 
 ## 📌 Contenido destacado
 
-* **Experiencia técnica** organizada por áreas (frontend, backend, devops, automatización...)
+* **Experiencia técnica** organizada por áreas (frontend, backend, automatización, devops, etc.)
 * **Proyectos reales** con tecnologías modernas
-* **Meteochismes**: mi canal de divulgación meteorológica
-* **Sección de contacto** con enlaces activos a redes
+* **Meteochismes**: canal personal de divulgación meteorológica
+* **Perfil y contacto** con enlaces activos a redes
 
 ---
 
 ## 🧩 Personalización
 
-Podés modificar los archivos en `/src/data/` para actualizar:
+Podés modificar fácilmente los datos dinámicos editando los archivos en `/src/data/`:
 
-* Habilidades (`skills.js`)
-* Educación (`education.js`)
-* Proyectos (`projects.js`)
-* Enlaces sociales y contacto (`links.js`)
+* `skills.js` → habilidades y tecnologías por área
+* `education.js` → formación académica
+* `projects.js` → proyectos destacados
+* `links.js` → redes sociales, WhatsApp, GitHub, etc.
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto es de código abierto y puede ser reutilizado con atribución. Creado por Juan Cruz Bini.
+Este proyecto es de código abierto y puede ser reutilizado con atribución.
+Creado por **Juan Cruz Bini**.
 
 ---
 
