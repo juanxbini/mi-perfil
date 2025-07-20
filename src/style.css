@@ -1,3 +1,6 @@
+/* ----------------------------------------
+   ESTILOS BASE
+---------------------------------------- */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -12,6 +15,9 @@ header {
   color: #00fff7;
 }
 
+/* ----------------------------------------
+   PERFIL
+---------------------------------------- */
 .profile {
   text-align: center;
   margin-top: 2rem;
@@ -31,7 +37,6 @@ header {
   transform: scale(1.05);
 }
 
-
 .profile-description {
   margin-top: 1rem;
   max-width: 600px;
@@ -39,84 +44,9 @@ header {
   color: #ccc;
 }
 
-.skills-section {
-  padding: 2rem;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.skill-box {
-  background: #1a1a1a;
-  padding: 1rem; /* antes 1.5rem */
-  border-radius: 10px;
-  border-left: 3px solid #00fff7;
-  font-size: 0.9rem; /* más compacto */
-  line-height: 1.4;
-}
-.skill-box h3 {
-  margin-top: 0;
-  color: #00fff7;
-  font-size: 1.05rem; /* un poco más chico */
-}
-.projects-section, .education-section {
-  padding: 2rem;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.project-entry {
-  background: #222;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.project-entry a {
-  font-weight: bold;
-  color: #00fff7;
-  text-decoration: none;
-}
-
-.project-entry a:hover {
-  text-decoration: underline;
-}
-
-.tags {
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  color: #aaa;
-}
-
-.tag {
-  background: #00fff7;
-  color: #000;
-  border-radius: 4px;
-  padding: 2px 8px;
-  margin-right: 5px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  background: #1f1f1f;
-  margin-bottom: 0.75rem;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  color: #ccc;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+/* ----------------------------------------
+   REDES SOCIALES
+---------------------------------------- */
 .social-icons {
   display: flex;
   justify-content: center;
@@ -160,18 +90,10 @@ ul li {
 .social-icons a:hover::after {
   opacity: 1;
 }
-.skill-box,
-.project-entry,
-.education-section li {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.skill-box:hover,
-.project-entry:hover,
-.education-section li:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(0, 255, 247, 0.15);
-}
+/* ----------------------------------------
+   NAVEGACIÓN
+---------------------------------------- */
 .main-nav {
   position: sticky;
   top: 0;
@@ -194,6 +116,172 @@ ul li {
 .main-nav a:hover {
   color: #ffffff;
 }
+
+@media (max-width: 600px) {
+  .main-nav {
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ----------------------------------------
+   SECCIÓN: EXPERIENCIA (Skills)
+---------------------------------------- */
+.skills-section {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.skill-box {
+  background: #1a1a1a;
+  padding: 1rem;
+  border-radius: 10px;
+  border-left: 3px solid #00fff7;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-box h3 {
+  margin-top: 0;
+  color: #00fff7;
+  font-size: 1.05rem;
+}
+
+.skill-box:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 255, 247, 0.15);
+}
+
+/* Diseño acordeón para mobile */
+.skill-accordion {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background: #1a1a1a;
+  border-left: 3px solid #00fff7;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordion-header {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #00fff7;
+  font-size: 1.05rem;
+  text-align: left;
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  position: relative;
+}
+
+.accordion-header::after {
+  content: "▶";
+  position: absolute;
+  right: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header[aria-expanded='true']::after {
+  transform: rotate(90deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-content ul {
+  padding: 0 1rem 1rem 1rem;
+}
+
+.accordion-content li {
+  background: #1f1f1f;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: #ccc;
+}
+
+@media (min-width: 768px) {
+  .skill-accordion {
+    display: none;
+  }
+  .skills-grid {
+    display: grid;
+  }
+}
+
+@media (max-width: 767px) {
+  .skills-grid {
+    display: none;
+  }
+}
+
+/* ----------------------------------------
+   SECCIONES VARIAS
+---------------------------------------- */
+.projects-section,
+.education-section {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.project-entry {
+  background: #222;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-entry a {
+  font-weight: bold;
+  color: #00fff7;
+  text-decoration: none;
+}
+
+.project-entry a:hover {
+  text-decoration: underline;
+}
+
+.project-entry:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 255, 247, 0.15);
+}
+
+.education-section li {
+  background: #1f1f1f;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-section li:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 255, 247, 0.15);
+}
+
+/* ----------------------------------------
+   SECCIÓN: METEOCHISMES
+---------------------------------------- */
 .highlight-section {
   text-align: center;
   background: #1a1a1a;
@@ -216,6 +304,21 @@ ul li {
   font-size: 0.95rem;
   line-height: 1.5;
 }
+
+.tags {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.tag {
+  background: #00fff7;
+  color: #000;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-right: 5px;
+}
+
 .canal-wsp {
   margin-left: 10px;
   font-size: 1rem;
@@ -236,6 +339,9 @@ ul li {
   transform: scale(1.05);
 }
 
+/* ----------------------------------------
+   FOOTER
+---------------------------------------- */
 .footer-tec {
   text-align: center;
   background: #0e1a24;
@@ -257,15 +363,9 @@ ul li {
   font-weight: 500;
 }
 
-@media (max-width: 600px) {
-  .main-nav {
-    flex-wrap: wrap;
-    gap: 1rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* Animación fade-slide */
+/* ----------------------------------------
+   ANIMACIONES
+---------------------------------------- */
 @keyframes fadeSlideUp {
   0% {
     opacity: 0;
@@ -282,11 +382,5 @@ ul li {
 .education-section li {
   opacity: 0;
   animation: fadeSlideUp 0.6s ease forwards;
-  animation-delay: var(--delay, 0s); /* custom delay si querés aplicarlo con JS */
-}
-
-@media (max-width: 600px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
+  animation-delay: var(--delay, 0s);
 }

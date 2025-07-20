@@ -7,6 +7,5 @@ export const education = [
   "Meteorología General Básica – InterAir",
   "Administrador Linux – EducacionIT",
   "Desarrollador Full Stack – EducacionIT",
-  "SysAdmin Linux - EducacionIT",
   "Tec. Univ. en Sistemas Electrónicos Inteligentes Industriales – UNS"
 ];
